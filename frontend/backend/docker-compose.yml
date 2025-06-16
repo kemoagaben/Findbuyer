@@ -1,0 +1,36 @@
+yaml
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: findbuyer-db
+    environment:
+      POSTGRES_DB: findbuyer
+      POSTGRES_USER: findbuyer_user
+      POSTGRES_PASSWORD: findbuyer_password
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7-alpine
+    container_name: findbuyer-redis
+    ports:
+      - "6379:6379"
+
+  backend:
+    build: ./backend
+    container_name: findbuyer-backend
+    ports:
+      - "3001:3001"
+    depends_on:
+      - postgres
+      - redis
+
+  frontend:
+    build: ./frontend
+    container_name: findbuyer-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
