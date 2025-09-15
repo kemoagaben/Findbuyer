@@ -171,3 +171,10 @@ npm run dev
 <div align="center">
 <sub>🚀 Built with ❤️ by the FindBuyer Team | Revolutionizing commerce, one buyer at a time</sub>
 </div>
+
+
+## Lisans
+
+Bu proje MIT Lisansı ile lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasına bakın.
+
+
